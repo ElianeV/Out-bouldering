@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import React, { useEffect, useState } from "react";
+import Me from "./images/Me.png";
+import introBg from "./images/introBg.png";
 
 function App() {
   useEffect(() => {
@@ -87,6 +89,16 @@ function App() {
   ];
   return (
     <div>
+      <div className="introBg">
+        <div className="intro">
+          <div className="image">
+            <img src={Me} />
+            <div className="introText">
+              <h1>Outdoor bouldering Ireland</h1>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>List of crags + info</div>
 
       {locations.map(({ name, boulders, county, latitude, longitude }) => (
