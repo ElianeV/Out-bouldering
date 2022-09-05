@@ -1,17 +1,27 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import React, { useEffect, useState } from "react";
-import Me from "./images/Me.png";
-import introBg from "./images/introBg.png";
+import DatePicker from "react-date-picker";
 
 function App() {
+  const [rain, setRain] = useState([]);
+  const [temp, setTemp] = useState([]);
+  const [hum, setHum] = useState([]);
+  const [value, setDate] = useState(new Date());
+
+  var maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
+
   useEffect(() => {
     fetch(
-      "http://api.weatherapi.com/v1/forecast.json?key=ebeac77fb0614b7dafa185816220408&q=52.02456913909303,-9.636417840550271&days=3"
+      "http://api.openweathermap.org/data/2.5/forecast?lat=52.02456913909303&lon=-9.636417840550271&appid=9e7a95161ad9e25ea439cfe0a77e5459&units=metric"
     )
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        console.log(json.list);
+        const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
+        const dayData = json.list.filter((weatherPeriod) => {
+          return dayTimes.includes(weatherPeriod.dt_txt.slice(-8));
+        });
+        console.log(dayData);
       });
   }, []);
 
@@ -38,13 +48,6 @@ function App() {
       longitude: -6.147370655469292,
     },
     {
-      name: "Glenmacnass",
-      boulders: 91,
-      county: "Wicklow",
-      latitude: 53.08049562688207,
-      longitude: -6.379002901481163,
-    },
-    {
       name: "Glendalough",
       boulders: 219,
       county: "Wicklow",
@@ -57,13 +60,6 @@ function App() {
       county: "Dublin",
       latitude: 53.4877134928144,
       longitude: -6.1000056353936065,
-    },
-    {
-      name: "Glendasan",
-      boulders: 80,
-      county: "Wicklow",
-      latitude: 53.02337696129123,
-      longitude: -6.3629271050246405,
     },
     {
       name: "Mourne mountains",
@@ -87,29 +83,27 @@ function App() {
       longitude: -8.757240305887496,
     },
   ];
+
   return (
     <div>
-      <div className="introBg">
-        <div className="intro">
-          <div className="image">
-            <img src={Me} />
-            <div className="introText">
-              <h1>Outdoor bouldering Ireland</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <DatePicker
+        value={value}
+        onChange={(date) => {
+          console.log(date);
+        }}
+        maxDate={maxDate}
+        minDate={new Date()}
+      />
+      {/* <p>rain: {rain}</p>
+      <p>temp: {temp}</p>
+      <p>hum: {hum}</p>
       <div>List of crags + info</div>
-
       {locations.map(({ name, boulders, county, latitude, longitude }) => (
         <ul key={name}>
           <p>{name}</p>
-          <li>boulders: {boulders}</li>
           <li>county: {county}</li>
-          <li>latitude: {latitude}</li>
-          <li>longitude: {longitude}</li>
         </ul>
-      ))}
+      ))} */}
     </div>
   );
 }
