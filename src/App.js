@@ -71,6 +71,8 @@ function App() {
     // },
   ];
 
+  gggg;
+
   useEffect(() => {
     const promises = locations.map((location) =>
       fetch(
