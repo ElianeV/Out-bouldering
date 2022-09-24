@@ -1,6 +1,7 @@
 import "./App.scss";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
+import climber from "./images/climber.png";
 
 function App() {
   let maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
@@ -104,25 +105,52 @@ function App() {
 
   return (
     <div>
-      <DatePicker
-        value={value}
-        onChange={setDate}
-        maxDate={maxDate}
-        minDate={new Date()}
-      />
-
-      {dayWeather.map((location, i) => (
-        <ul style={{ marginBottom: "10px" }}>
-          <h1>{locations[i].name}</h1>
-          {location.map((hour, z) => (
-            <>
-              <li>{hours[z]}</li>
-              <li>rain {parseInt(hour.pop * 10) + "%"}</li>
-              <li>temp {hour.main.temp}</li>
-            </>
-          ))}
-        </ul>
-      ))}
+      <main>
+        <div class="cover top"></div>
+        <div class="shade"></div>
+        <div class="cover bottom"></div>
+        <section>
+          <h1>out</h1>
+          <h2>bouldering</h2>
+          <h3>Discover Ireland's wildest climbing spots</h3>
+        </section>
+      </main>
+      <div class="description">
+        <h1>where to?</h1>
+        <p>
+          Ireland is an island in the Atlantic ocean full of beauty, wilderness
+          and untamed elements. It harbors some amazing climbs out in nature. We
+          have packed together the 10 best most amazing areas to plan your trip.
+          But when to go? Ireland is known for its heavy rain, so use this app
+          to get a swift overview and know where and when to go to enjoy the
+          most of your climb.
+        </p>
+      </div>
+      <div class="weather">
+        <img
+          style={{ height: "100vh", float: "right" }}
+          src={climber}
+          alt="female climber on rocks"
+        />
+        <DatePicker
+          value={value}
+          onChange={setDate}
+          maxDate={maxDate}
+          minDate={new Date()}
+        />
+        {hours}
+        {dayWeather.map((location, i) => (
+          <ul style={{ marginBottom: "10px" }}>
+            <h1>{locations[i].name}</h1>
+            {location.map((hour, z) => (
+              <>
+                <li>rain {parseInt(hour.pop * 10) + "%"}</li>
+                <li>temp {hour.main.temp}</li>
+              </>
+            ))}
+          </ul>
+        ))}
+      </div>
     </div>
   );
 }

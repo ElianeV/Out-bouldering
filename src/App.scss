@@ -2,3 +2,67 @@
   margin: 0;
   padding: 0;
 }
+
+main {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 20vh;
+  background-image: url(./images/burren.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  section {
+    width: 400px;
+    height: 200px;
+    position: absolute;
+    top: 40vh;
+    left: 12vw;
+    color: white;
+
+    h1 {
+      font-size: 6rem;
+      font-family: "Times New Roman", Times, serif;
+    }
+    h2 {
+      font-size: 50px;
+      font-family: Georgia, serif;
+      margin-bottom: 15px;
+    }
+  }
+
+  .cover {
+    width: 100vw;
+    height: 10vh;
+    position: absolute;
+    background-color: white;
+  }
+  .top {
+    top: 0vh;
+  }
+  .bottom {
+    top: 90vh;
+  }
+  .shade {
+    width: 20vw;
+    height: 80vh;
+    position: absolute;
+    top: 10vh;
+    background-color: rgba(0, 0, 0, 0.634);
+  }
+}
+
+.description {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 20vh;
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+.weather {
+  width: 100vw;
+  height: 100vh;
+}
