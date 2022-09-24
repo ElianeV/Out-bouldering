@@ -3,15 +3,12 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
 
 function App() {
-  // const [rain, setRain] = useState([]);
-  // const [temp, setTemp] = useState([]);
-  // const [hum, setHum] = useState([]);
+  let maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
   const [value, setDate] = useState(new Date());
   const [allWeather, setAllWeather] = useState([]);
+  // const [dayWeather, setDayWeather] = useState();
   const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
-
-  var maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
-
+  const pickedDate = createUTCDateForISO(value);
   const locations = [
     {
       name: "Gap of Dunloe",
@@ -71,21 +68,40 @@ function App() {
     // },
   ];
 
+  function createUTCDateForISO(value) {
+    const offset = value.getTimezoneOffset();
+    const myDate = value - offset * 60 * 1000;
+    const dateAsISO = new Date(myDate).toISOString();
+
+    return dateAsISO.substring(0, 10);
+  }
+
   useEffect(() => {
     const promises = locations.map((location) =>
       fetch(
         `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=9e7a95161ad9e25ea439cfe0a77e5459&units=metric`
       )
         .then((response) => response.json())
-        .then((data) => console.log("this is the data"))
         .catch((error) => console.log(error))
     );
     Promise.all(promises).then((responses) => {
-      console.log("test");
-
       setAllWeather(responses);
     });
   }, []);
+
+  useEffect(() => {
+    const singleDayData = allWeather.map((location) =>
+      location.list.filter((weatherPeriod) => {
+        return (
+          weatherPeriod.dt_txt.slice(0, 10) === pickedDate &&
+          dayTimes.includes(weatherPeriod.dt_txt.slice(-8))
+        );
+      })
+    );
+    console.log(singleDayData);
+    // console.log("Average prob of percip " + singleDayData[0][0].pop * 10 + "%");
+    // console.log("average temp " + singleDayData[0][0].main.temp);
+  }, [pickedDate, allWeather]);
 
   return (
     <div>
@@ -95,16 +111,10 @@ function App() {
         maxDate={maxDate}
         minDate={new Date()}
       />
-      {/* <p>rain: {rain}</p>
-      <p>temp: {temp}</p>
-      <p>hum: {hum}</p>
-      <div>List of crags + info</div>
-      {locations.map(({ name, boulders, county, latitude, longitude }) => (
-        <ul key={name}>
-          <p>{name}</p>
-          <li>county: {county}</li>
-        </ul>
-      ))} */}
+
+      <ul>
+        <li>Doolin: Avg temp {}</li>
+      </ul>
     </div>
   );
 }
