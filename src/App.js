@@ -6,8 +6,9 @@ function App() {
   let maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
   const [value, setDate] = useState(new Date());
   const [allWeather, setAllWeather] = useState([]);
-  // const [dayWeather, setDayWeather] = useState();
+  const [dayWeather, setDayWeather] = useState([]);
   const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
+  const hours = ["09:00-12:00", "12:00-15:00", "15:00-18:00", "18:00-21:00"];
   const pickedDate = createUTCDateForISO(value);
   const locations = [
     {
@@ -98,9 +99,7 @@ function App() {
         );
       })
     );
-    console.log(singleDayData);
-    // console.log("Average prob of percip " + singleDayData[0][0].pop * 10 + "%");
-    // console.log("average temp " + singleDayData[0][0].main.temp);
+    setDayWeather(singleDayData);
   }, [pickedDate, allWeather]);
 
   return (
@@ -112,9 +111,18 @@ function App() {
         minDate={new Date()}
       />
 
-      <ul>
-        <li>Doolin: Avg temp {}</li>
-      </ul>
+      {dayWeather.map((location, i) => (
+        <ul style={{ marginBottom: "10px" }}>
+          <h1>{locations[i].name}</h1>
+          {location.map((hour, z) => (
+            <>
+              <li>{hours[z]}</li>
+              <li>rain {parseInt(hour.pop * 10) + "%"}</li>
+              <li>temp {hour.main.temp}</li>
+            </>
+          ))}
+        </ul>
+      ))}
     </div>
   );
 }
