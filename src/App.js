@@ -104,7 +104,7 @@ function App() {
   }, [pickedDate, allWeather]);
 
   return (
-    <div>
+    <>
       <main>
         <div class="cover top"></div>
         <div class="shade"></div>
@@ -151,7 +151,7 @@ function App() {
           </ul>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 
