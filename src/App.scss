@@ -4,12 +4,20 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Mulish", sans-serif;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fullPage {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 10vh;
 }
 
 main {
-  width: 100vw;
-  height: 100vh;
-  margin-bottom: 20vh;
   background-image: url(./images/burren.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,7 +26,6 @@ main {
   section {
     width: 400px;
     height: 200px;
-    position: absolute;
     top: 33vh;
     left: 9vw;
     color: white;
@@ -62,7 +69,6 @@ main {
     left: 9vw;
     background-color: rgba(0, 90, 86, 0.634);
     color: white;
-    font-family: "Mulish", sans-serif;
     h3 {
       padding-top: 2px;
     }
@@ -70,19 +76,28 @@ main {
 }
 
 .description {
-  width: 100vw;
-  height: 100vh;
-  margin-bottom: 20vh;
-  h1 {
-    font-size: 3rem;
-    text-align: center;
-    font-family: "Times New Roman", Times, serif;
+  .allMapContent {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .map {
+    width: 600px;
+    height: 402px;
+  }
+  .mapText {
+    width: 300px;
+    height: 300px;
+    text-align: justify;
+    font-size: 20px;
   }
 }
 
 .weather {
-  width: 100vw;
-  height: 100vh;
+  margin-bottom: 0;
 }
 
 // Animations

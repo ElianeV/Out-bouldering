@@ -2,6 +2,9 @@ import "./App.scss";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
 import climber from "./images/climber.png";
+import mapIreland from "./images/mapIreland.png";
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.compat.css";
 
 function App() {
   let maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
@@ -105,30 +108,44 @@ function App() {
 
   return (
     <>
-      <main>
-        <div class="cover top"></div>
-        <div class="shade"></div>
-        <div class="greenblock">
+      <main class="fullPage">
+        <div class="cover top absolute"></div>
+        <div class="shade absolute"></div>
+        <div class="greenblock absolute">
           <h3>Discover Ireland's wildest climbing spots</h3>
         </div>
-        <div class="cover bottom"></div>
-        <section>
+        <div class="cover bottom absolute"></div>
+        <section class="absolute">
           <h1>out</h1>
           <h2>bouldering</h2>
         </section>
       </main>
-      <div class="description">
-        <h1>where to?</h1>
-        <p>
-          Ireland is an island in the Atlantic ocean full of beauty, wilderness
-          and untamed elements. It harbors some amazing climbs out in nature. We
-          have packed together the 10 best most amazing areas to plan your trip.
-          But when to go? Ireland is known for its heavy rain, so use this app
-          to get a swift overview and know where and when to go to enjoy the
-          most of your climb.
-        </p>
+      <div class="description fullPage">
+        <div class="allMapContent">
+          <ScrollAnimation animateIn="fadeInUp">
+            <div class="map">
+              <img
+                style={{ width: "100%", height: "100%" }}
+                src={mapIreland}
+                alt="A map of Ireland with the most popular climbing locations highlighted."
+              />
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn="fadeInUp">
+            <div class="mapText">
+              <p>
+                Ireland is known for its diverse and untamed landscape which
+                harbours some of the most amazing climbing areas out in nature.
+                The Atlantic ocean offers a mild climate yet weather is
+                changeable with frequent rainfall. Get a swift overview of the
+                weather at some of the most popular bouldering locations, easy
+                to compare and plan your trip.
+              </p>
+            </div>
+          </ScrollAnimation>
+        </div>
       </div>
-      <div class="weather">
+      <div class="weather fullPage">
         <img
           style={{ height: "100vh", float: "right" }}
           src={climber}
@@ -143,7 +160,7 @@ function App() {
         {hours}
         {dayWeather.map((location, i) => (
           <ul style={{ marginBottom: "10px" }}>
-            <h1>{locations[i].name}</h1>
+            <h2>{locations[i].name}</h2>
             {location.map((hour, z) => (
               <>
                 <li>rain {parseInt(hour.pop * 10) + "%"}</li>
