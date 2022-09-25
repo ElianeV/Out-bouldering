@@ -12,15 +12,14 @@ function App() {
   const [allWeather, setAllWeather] = useState([]);
   const [dayWeather, setDayWeather] = useState([]);
   const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
-  const hours = ["09:00-12:00", "12:00-15:00", "15:00-18:00", "18:00-21:00"];
   const pickedDate = createUTCDateForISO(value);
   const locations = [
     {
-      name: "Gap of Dunloe",
-      boulders: 40,
-      county: "Kerry",
-      latitude: 52.02456913909303,
-      longitude: -9.636417840550271,
+      name: "Aughris Head",
+      boulders: 20,
+      county: "Sligo",
+      latitude: 54.27828377751629,
+      longitude: -8.757240305887496,
     },
     {
       name: "Doolin",
@@ -37,25 +36,18 @@ function App() {
     //   longitude: -6.147370655469292,
     // },
     // {
+    //   name: "Gap of Dunloe",
+    //   boulders: 40,
+    //   county: "Kerry",
+    //   latitude: 52.02456913909303,
+    //   longitude: -9.636417840550271,
+    // },
+    // {
     //   name: "Glendalough",
     //   boulders: 219,
     //   county: "Wicklow",
     //   latitude: 53.00659217097069,
     //   longitude: -6.382179534789128,
-    // },
-    // {
-    //   name: "Portrane",
-    //   boulders: 67,
-    //   county: "Dublin",
-    //   latitude: 53.4877134928144,
-    //   longitude: -6.1000056353936065,
-    // },
-    // {
-    //   name: "Mourne mountains",
-    //   boulders: 100,
-    //   county: "Down",
-    //   latitude: 54.157742111287604,
-    //   longitude: -6.092829351171304,
     // },
     // {
     //   name: "Inishowen",
@@ -65,11 +57,18 @@ function App() {
     //   longitude: -7.294088557516704,
     // },
     // {
-    //   name: "Aughris Head",
-    //   boulders: 20,
-    //   county: "Sligo",
-    //   latitude: 54.27828377751629,
-    //   longitude: -8.757240305887496,
+    //   name: "Mourne mountains",
+    //   boulders: 100,
+    //   county: "Down",
+    //   latitude: 54.157742111287604,
+    //   longitude: -6.092829351171304,
+    // },
+    // {
+    //   name: "Portrane",
+    //   boulders: 67,
+    //   county: "Dublin",
+    //   latitude: 53.4877134928144,
+    //   longitude: -6.1000056353936065,
     // },
   ];
 
@@ -122,7 +121,7 @@ function App() {
       </main>
       <div class="description fullPage">
         <div class="allMapContent">
-          <ScrollAnimation animateIn="fadeInUp">
+          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="map">
               <img
                 style={{ width: "100%", height: "100%" }}
@@ -131,7 +130,7 @@ function App() {
               />
             </div>
           </ScrollAnimation>
-          <ScrollAnimation animateIn="fadeInUp">
+          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="mapText">
               <p>
                 Ireland is known for its diverse and untamed landscape which
@@ -146,29 +145,47 @@ function App() {
         </div>
       </div>
       <div class="weather fullPage">
-        <img
-          style={{ height: "100vh", float: "right" }}
-          src={climber}
-          alt="female climber on rocks"
-        />
-        <DatePicker
-          value={value}
-          onChange={setDate}
-          maxDate={maxDate}
-          minDate={new Date()}
-        />
-        {hours}
-        {dayWeather.map((location, i) => (
-          <ul style={{ marginBottom: "10px" }}>
-            <h2>{locations[i].name}</h2>
-            {location.map((hour, z) => (
-              <>
-                <li>rain {parseInt(hour.pop * 10) + "%"}</li>
-                <li>temp {hour.main.temp}</li>
-              </>
-            ))}
-          </ul>
-        ))}
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div class="allWeatherContent">
+            <div class="weatherResults">
+              <DatePicker
+                value={value}
+                onChange={setDate}
+                maxDate={maxDate}
+                minDate={new Date()}
+              />
+              <div class="topRow">
+                <ul class="times">
+                  <li>09:00-12:00</li>
+                  <li>12:00-15:00</li>
+                  <li>15:00-18:00</li>
+                  <li>18:00-21:00</li>
+                </ul>
+                <ul class="tempAndRain">
+                  <li>temp | rain</li>
+                  <li>temp | rain</li>
+                  <li>temp | rain</li>
+                  <li>temp | rain</li>
+                </ul>
+              </div>
+
+              {dayWeather.map((location, i) => (
+                <ul style={{ marginBottom: "10px" }}>
+                  <h2>{locations[i].name}</h2>
+                  {location.map((hour, z) => (
+                    <>
+                      <li>rain {parseInt(hour.pop * 10) + "%"}</li>
+                      <li>temp {hour.main.temp}</li>
+                    </>
+                  ))}
+                </ul>
+              ))}
+            </div>
+            <div class="climber">
+              <img src={climber} alt="female climber on rocks" />
+            </div>
+          </div>
+        </ScrollAnimation>
       </div>
     </>
   );

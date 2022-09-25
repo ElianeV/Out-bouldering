@@ -76,11 +76,12 @@ main {
 }
 
 .description {
+  padding-top: 10vh;
+  margin-bottom: 0;
   .allMapContent {
     width: 100vw;
     height: 80vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
   }
@@ -98,6 +99,39 @@ main {
 
 .weather {
   margin-bottom: 0;
+  .allWeatherContent {
+    padding-top: 8vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .weatherResults {
+    width: 600px;
+    height: 503px;
+    background-color: grey;
+  }
+
+  .times {
+    display: flex;
+    li {
+      list-style: none;
+      padding: 0px 20px;
+    }
+  }
+  .tempAndRain {
+    display: flex;
+    li {
+      list-style: none;
+      padding: 0px 20px;
+    }
+  }
+  .climber {
+    width: 400px;
+    height: 503px;
+  }
+  img {
+    width: 350px;
+  }
 }
 
 // Animations
