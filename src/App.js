@@ -108,11 +108,13 @@ function App() {
       <main>
         <div class="cover top"></div>
         <div class="shade"></div>
+        <div class="greenblock">
+          <h3>Discover Ireland's wildest climbing spots</h3>
+        </div>
         <div class="cover bottom"></div>
         <section>
           <h1>out</h1>
           <h2>bouldering</h2>
-          <h3>Discover Ireland's wildest climbing spots</h3>
         </section>
       </main>
       <div class="description">
