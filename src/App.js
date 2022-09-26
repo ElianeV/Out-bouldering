@@ -155,30 +155,36 @@ function App() {
                 minDate={new Date()}
               />
               <div class="topRow">
-                <ul class="times">
-                  <li>09:00-12:00</li>
-                  <li>12:00-15:00</li>
-                  <li>15:00-18:00</li>
-                  <li>18:00-21:00</li>
-                </ul>
-                <ul class="tempAndRain">
-                  <li>temp | rain</li>
-                  <li>temp | rain</li>
-                  <li>temp | rain</li>
-                  <li>temp | rain</li>
-                </ul>
+                <div class="head">
+                  <h4>09:00-12:00</h4>
+                  <h4>temp | rain</h4>
+                </div>
+                <div class="head">
+                  <h4>12:00-15:00</h4>
+                  <h4>temp | rain</h4>
+                </div>
+                <div class="head">
+                  <h4>15:00-18:00</h4>
+                  <h4>temp | rain</h4>
+                </div>
+                <div class="head">
+                  <h4>18:00-21:00</h4>
+                  <h4>temp | rain</h4>
+                </div>
               </div>
 
               {dayWeather.map((location, i) => (
-                <ul style={{ marginBottom: "10px" }}>
-                  <h2>{locations[i].name}</h2>
+                <div class="locationDataAll">
+                  <div class="locationName">{locations[i].name}</div>
                   {location.map((hour, z) => (
-                    <>
-                      <li>rain {parseInt(hour.pop * 10) + "%"}</li>
-                      <li>temp {hour.main.temp}</li>
-                    </>
+                    <div class="locationTempAndRain">
+                      <div style={{ paddingRight: "10px" }}>
+                        {parseInt(hour.main.temp) + "°C "}
+                        {+parseInt(hour.pop * 10) + "%"}
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               ))}
             </div>
             <div class="climber">
