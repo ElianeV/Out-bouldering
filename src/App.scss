@@ -19,20 +19,14 @@ $green: rgba(0, 90, 86);
   height: 100vh;
 }
 
+// Intro - 1st page
+
 main {
   background-image: url(./images/burren.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   animation: fadeIn 1s;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 
   section {
     width: 91vw;
@@ -71,6 +65,7 @@ main {
     position: absolute;
     top: 10vh;
     background-color: rgba(0, 0, 0, 0.634);
+    animation: 1.5s ease slideRight forwards;
   }
   .greenblock {
     width: 91vw;
@@ -80,10 +75,14 @@ main {
     left: 9vw;
     background-color: $transparentGreen;
     color: white;
+    animation: 2s linear scrollDown forwards;
+    overflow-y: hidden;
     h3 {
       padding-top: 2px;
     }
   }
+
+  // Responsive
 
   @media screen and (max-width: 550px) {
     section {
@@ -102,6 +101,8 @@ main {
     }
   }
 }
+
+// Description - 2nd page
 
 .description {
   padding-top: 25vh;
@@ -123,6 +124,8 @@ main {
     font-size: 20px;
   }
 }
+
+// Weather chart - 3rd page
 
 .weather {
   .climber {
@@ -212,9 +215,15 @@ main {
 }
 
 // Animations
-.shade {
-  animation: 1.5s ease slideRight forwards;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
 @keyframes slideRight {
   0% {
     transform: translateX(-20vw);
@@ -242,10 +251,6 @@ h2 {
     transform: translateX(0px);
     opacity: 1;
   }
-}
-.greenblock {
-  animation: 2s linear scrollDown forwards;
-  overflow-y: hidden;
 }
 @keyframes scrollDown {
   0% {
