@@ -120,7 +120,7 @@ function App() {
           <h2>bouldering</h2>
         </section>
       </main>
-      <div class="description fullPage">
+      {/* <div class="description fullPage">
         <div class="allMapContent">
           <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="mapText">
@@ -144,14 +144,14 @@ function App() {
             </div>
           </ScrollAnimation>
         </div>
-      </div>
-      <div class="weather fullPage">
+      </div> */}
+      {/* <div class="weather fullPage">
         <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
-          <div class="allWeatherContent">
-            <div class="climber">
+          <div class="allWeatherContent"> */}
+      {/* <div class="climber">
               <img src={climber} alt="female climber on rocks" />
-            </div>
-            <div class="weatherResults">
+            </div> */}
+      {/* <div class="weatherResults">
               <div class="datePicker">
                 <DatePicker
                   value={value}
@@ -163,20 +163,28 @@ function App() {
               <div class="topRow">
                 <div class="emptyCell"></div>
                 <div class="head">
-                  <h4>09:00-12:00</h4>
-                  <h4>temp | rain</h4>
+                  <div class="headContent">
+                    <div>09:00-12:00</div>
+                    <div>temp | rain</div>
+                  </div>
                 </div>
                 <div class="head">
-                  <h4>12:00-15:00</h4>
-                  <h4>temp | rain</h4>
+                  <div class="headContent">
+                    <div>12:00-15:00</div>
+                    <div>temp | rain</div>
+                  </div>
                 </div>
                 <div class="head">
-                  <h4>15:00-18:00</h4>
-                  <h4>temp | rain</h4>
+                  <div class="headContent">
+                    <div>15:00-18:00</div>
+                    <div>temp | rain</div>
+                  </div>
                 </div>
                 <div class="head">
-                  <h4>18:00-21:00</h4>
-                  <h4>temp | rain</h4>
+                  <div class="headContent">
+                    <div>18:00-21:00</div>
+                    <div>temp | rain</div>
+                  </div>
                 </div>
               </div>
 
@@ -188,17 +196,17 @@ function App() {
                   {location.map((hour, z) => (
                     <div class="singleCell">
                       <div class="singleCellContent">
-                        {parseInt(hour.main.temp) + "°C " + " | "}
-                        {+parseInt(hour.pop * 10) + "%"}
-                      </div>
+                        {/* {parseInt(hour.main.temp) + "°C " + " | "} */}
+      {/* |{+parseInt(hour.pop * 10) + "%"} 100% */}
+      {/* </div>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
-          </div>
-        </ScrollAnimation>
-      </div>
+          </div> */}
+      {/* </ScrollAnimation> */}
+      {/* </div> */}
     </>
   );
 }

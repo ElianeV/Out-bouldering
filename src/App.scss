@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap");
 
 $transparentGreen: rgba(0, 90, 86, 0.634);
+$green: rgba(0, 90, 86);
 
 * {
   margin: 0;
@@ -34,9 +35,10 @@ main {
   }
 
   section {
-    width: 400px;
+    width: 91vw;
+    max-width: 400px;
     height: 200px;
-    top: 33vh;
+    bottom: 33vh;
     left: 9vw;
     color: white;
 
@@ -51,7 +53,6 @@ main {
       margin-bottom: 15px;
     }
   }
-
   .cover {
     width: 100vw;
     height: 10vh;
@@ -75,12 +76,29 @@ main {
     width: 91vw;
     height: 32px;
     position: absolute;
-    top: 69vh;
+    top: 68vh;
     left: 9vw;
     background-color: $transparentGreen;
     color: white;
     h3 {
       padding-top: 2px;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    section {
+      h1 {
+        font-size: 100px;
+      }
+      h2 {
+        font-size: 50px;
+      }
+    }
+    .greenblock {
+      h3 {
+        padding-top: 2px;
+        height: 100px;
+      }
     }
   }
 }
@@ -128,33 +146,47 @@ main {
   .weatherResults {
     width: 75vw;
     height: 503px;
-    position: absolute;
+    // position: absolute;
+    // change back to absolute
     top: 8vh;
     left: 300px;
   }
 
-  .emptyCell {
-    min-width: 145px;
-    width: 170px;
-  }
   .topRow {
+    min-width: 550px;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    .emptyCell {
+      min-width: 145px;
+      width: 170px;
+    }
     .head {
-      padding: 20px;
+      min-width: 102px;
+      width: 150px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .headContent {
+        font-size: 10px;
+        min-width: 102px;
+      }
     }
   }
+
+  // adjust styling above this line
+
   .locationDataAll {
+    min-width: 550px;
+    width: 100%;
+    // this width needs to be adjusted according to parent element!
     display: flex;
     justify-content: space-between;
   }
   .locationDataAll:hover {
     background-color: rgb(139, 139, 139, 0.15);
   }
-
-
-
   .locationName {
     min-width: 125px;
     width: 150px;
@@ -167,12 +199,14 @@ main {
   }
   .singleCell {
     min-width: 102px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
   }
   .singleCellContent {
+    width: 102px;
     text-align: center;
   }
 }
