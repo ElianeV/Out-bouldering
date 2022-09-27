@@ -16,7 +16,6 @@ $transparentGreen: rgba(0, 90, 86, 0.634);
 .fullPage {
   width: 100vw;
   height: 100vh;
-  margin-bottom: 10vh;
 }
 
 main {
@@ -87,7 +86,7 @@ main {
 }
 
 .description {
-  padding-top: 10vh;
+  padding-top: 25vh;
   margin-bottom: 0;
   .allMapContent {
     width: 100vw;
@@ -108,8 +107,6 @@ main {
 }
 
 .weather {
-  margin-bottom: 0;
-
   .climber {
     margin-left: 20px;
     img {
@@ -125,7 +122,6 @@ main {
   }
 
   .allWeatherContent {
-    padding-top: 8vh;
     display: flex;
     align-items: center;
   }
@@ -138,7 +134,8 @@ main {
   }
 
   .emptyCell {
-    min-width: 200px;
+    min-width: 145px;
+    width: 170px;
   }
   .topRow {
     display: flex;
@@ -152,23 +149,31 @@ main {
     display: flex;
     justify-content: space-between;
   }
-  .locationName {
-    flex-grow: 0;
-    flex-shrink: 0;
-    width: 150px;
-    height: 25px;
-    font-size: 18px;
-    background-color: $transparentGreen;
-    color: white;
-    padding: 5px 0px 5px 20px;
-  }
   .locationDataAll:hover {
     background-color: rgb(139, 139, 139, 0.15);
   }
 
-  .dataList {
-    list-style: none;
+
+
+  .locationName {
+    min-width: 125px;
+    width: 150px;
+    height: 25px;
+    background-color: $transparentGreen;
+    color: white;
     display: flex;
+    align-items: center;
+    padding: 5px 0px 5px 20px;
+  }
+  .singleCell {
+    min-width: 102px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .singleCellContent {
+    text-align: center;
   }
 }
 

@@ -128,20 +128,9 @@ function App() {
                 Ireland is known for its diverse and untamed landscape and is
                 home to some of the most amazing climbs out in nature. Although
                 the Atlantic ocean provides a mild climate, the weather on the
-                island is changeable and it often rains. Use{" "}
-                <a
-                  href="#weatherChart"
-                  style={{
-                    backgroundColor: "rgba(0, 90, 86, 0.634)",
-                    color: "white",
-                    textDecoration: "none",
-                  }}
-                >
-                  the chart
-                </a>{" "}
-                below to get a swift overview of the weather forecast at the
-                most popular bouldering locations and plan your ideal (dry!)
-                climbing trip.
+                island is changeable and it often rains. Use the chart below to
+                get a swift overview of the weather forecast at the most popular
+                bouldering locations and plan your ideal (dry!) climbing trip.
               </p>
             </div>
           </ScrollAnimation>
@@ -157,12 +146,12 @@ function App() {
         </div>
       </div>
       <div class="weather fullPage">
-        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+        <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
           <div class="allWeatherContent">
             <div class="climber">
               <img src={climber} alt="female climber on rocks" />
             </div>
-            <div id="weatherChart" class="weatherResults">
+            <div class="weatherResults">
               <div class="datePicker">
                 <DatePicker
                   value={value}
@@ -193,10 +182,12 @@ function App() {
 
               {dayWeather.map((location, i) => (
                 <div class="locationDataAll">
-                  <div class="locationName">{locations[i].name}</div>
+                  <div class="locationName">
+                    <div class="locationNameContent">{locations[i].name}</div>
+                  </div>
                   {location.map((hour, z) => (
-                    <div class="locationTempAndRain">
-                      <div style={{ paddingRight: "10px" }}>
+                    <div class="singleCell">
+                      <div class="singleCellContent">
                         {parseInt(hour.main.temp) + "°C " + " | "}
                         {+parseInt(hour.pop * 10) + "%"}
                       </div>
