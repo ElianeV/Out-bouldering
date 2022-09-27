@@ -7,8 +7,9 @@ import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
 
 function App() {
-  let maxDate = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000);
-  const [value, setDate] = useState(new Date());
+  let maxDate = new Date(new Date().getTime() + 4 * 24 * 60 * 60 * 1000);
+  let minDate = new Date(maxDate.getTime() - 3 * 24 * 60 * 60 * 1000);
+  const [value, setDate] = useState(minDate);
   const [allWeather, setAllWeather] = useState([]);
   const [dayWeather, setDayWeather] = useState([]);
   const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
@@ -122,6 +123,29 @@ function App() {
       <div class="description fullPage">
         <div class="allMapContent">
           <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+            <div class="mapText">
+              <p>
+                Ireland is known for its diverse and untamed landscape and is
+                home to some of the most amazing climbs out in nature. Although
+                the Atlantic ocean provides a mild climate, the weather on the
+                island is changeable and it often rains. Use{" "}
+                <a
+                  href="#weatherChart"
+                  style={{
+                    backgroundColor: "rgba(0, 90, 86, 0.634)",
+                    color: "white",
+                    textDecoration: "none",
+                  }}
+                >
+                  the chart
+                </a>{" "}
+                below to get a swift overview of the weather forecast at the
+                most popular bouldering locations and plan your ideal (dry!)
+                climbing trip.
+              </p>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="map">
               <img
                 style={{ width: "100%", height: "100%" }}
@@ -130,30 +154,22 @@ function App() {
               />
             </div>
           </ScrollAnimation>
-          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-            <div class="mapText">
-              <p>
-                Ireland is known for its diverse and untamed landscape which
-                harbours some of the most amazing climbing areas out in nature.
-                The Atlantic ocean offers a mild climate yet weather is
-                changeable with frequent rainfall. Get a swift overview of the
-                weather at some of the most popular bouldering locations, easy
-                to compare and plan your trip.
-              </p>
-            </div>
-          </ScrollAnimation>
         </div>
       </div>
       <div class="weather fullPage">
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
           <div class="allWeatherContent">
-            <div class="weatherResults">
+            <div class="climber">
+              <img src={climber} alt="female climber on rocks" />
+            </div>
+            <div id="weatherChart" class="weatherResults">
               <DatePicker
                 value={value}
                 onChange={setDate}
                 maxDate={maxDate}
-                minDate={new Date()}
+                minDate={minDate}
               />
+
               <div class="topRow">
                 <div class="head">
                   <h4>09:00-12:00</h4>
@@ -186,9 +202,6 @@ function App() {
                   ))}
                 </div>
               ))}
-            </div>
-            <div class="climber">
-              <img src={climber} alt="female climber on rocks" />
             </div>
           </div>
         </ScrollAnimation>
