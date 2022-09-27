@@ -108,7 +108,7 @@ function App() {
 
   return (
     <>
-      <main class="fullPage">
+      <main>
         <div class="cover top absolute"></div>
         <div class="shade absolute"></div>
         <div class="greenblock absolute">
@@ -120,7 +120,7 @@ function App() {
           <h2>bouldering</h2>
         </section>
       </main>
-      {/* <div class="description fullPage">
+      <div class="description">
         <div class="allMapContent">
           <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="mapText">
@@ -137,15 +137,14 @@ function App() {
           <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
             <div class="map">
               <img
-                style={{ width: "100%", height: "100%" }}
                 src={mapIreland}
                 alt="A map of Ireland with the most popular climbing locations highlighted."
               />
             </div>
           </ScrollAnimation>
         </div>
-      </div> */}
-      {/* <div class="weather fullPage">
+      </div>
+      {/* <div class="weather">
         <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
           <div class="allWeatherContent"> */}
       {/* <div class="climber">
