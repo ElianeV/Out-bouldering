@@ -1,7 +1,6 @@
 import "./App.scss";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
-import climber from "./images/climber.png";
 import mapIreland from "./images/mapIreland.png";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
@@ -141,17 +140,18 @@ function App() {
         </ScrollAnimation>
       </div>
       <div class="weather">
-        <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-          <div class="weatherChart">
+        <div class="weatherChart">
+          <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+            <div class="datePicker">
+              <DatePicker
+                value={value}
+                onChange={setDate}
+                maxDate={maxDate}
+                minDate={minDate}
+              />
+            </div>
             <div class="row topRow">
-              <div class="firstCol datePicker">
-                <DatePicker
-                  value={value}
-                  onChange={setDate}
-                  maxDate={maxDate}
-                  minDate={minDate}
-                />
-              </div>
+              <div class="firstCol"></div>
               <div class="topCell cell">
                 <div class="cellContent">
                   <div>09:00-12:00</div>
@@ -192,8 +192,8 @@ function App() {
                 ))}
               </div>
             ))}
-          </div>
-        </ScrollAnimation>
+          </ScrollAnimation>
+        </div>
       </div>
     </>
   );
