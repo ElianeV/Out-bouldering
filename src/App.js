@@ -120,29 +120,27 @@ function App() {
           <h2>bouldering</h2>
         </section>
       </main>
-      <div class="description">
-        <div class="allMapContent">
-          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-            <div class="mapText">
-              <p>
-                Ireland is known for its diverse and untamed landscape and is
-                home to some of the most amazing climbs out in nature. Although
-                the Atlantic ocean provides a mild climate, the weather on the
-                island is changeable and it often rains. Use the chart below to
-                get a swift overview of the weather forecast at the most popular
-                bouldering locations and plan your ideal (dry!) climbing trip.
-              </p>
-            </div>
-          </ScrollAnimation>
-          <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-            <div class="map">
-              <img
-                src={mapIreland}
-                alt="A map of Ireland with the most popular climbing locations highlighted."
-              />
-            </div>
-          </ScrollAnimation>
-        </div>
+      <div class="allMapContent">
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div class="mapText">
+            <p>
+              Ireland is known for its diverse and untamed landscape and is home
+              to some of the most amazing climbs out in nature. Although the
+              Atlantic ocean provides a mild climate, the weather on the island
+              is changeable and it often rains. Use the chart below to get a
+              swift overview of the weather forecast at the most popular
+              bouldering locations and plan your ideal (dry!) climbing trip.
+            </p>
+          </div>
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+          <div class="map">
+            <img
+              src={mapIreland}
+              alt="A map of Ireland with the most popular climbing locations highlighted."
+            />
+          </div>
+        </ScrollAnimation>
       </div>
       {/* <div class="weather">
         <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
