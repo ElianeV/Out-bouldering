@@ -43,23 +43,9 @@ main {
       margin-bottom: 15px;
     }
   }
-  .cover {
-    width: 100vw;
-    height: 10vh;
-    position: absolute;
-    background-color: white;
-  }
-  .top {
-    top: 0vh;
-  }
-  .bottom {
-    top: 90vh;
-  }
   .shade {
     width: 20vw;
-    height: 80vh;
-    position: absolute;
-    top: 10vh;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.634);
     animation: 1.5s ease slideRight forwards;
   }
@@ -166,21 +152,21 @@ main {
 // Weather chart - 3rd page
 
 .weather {
+  height: 500px;
+  margin-top: 70px;
   .climber {
-    margin-left: 20px;
     img {
       width: 350px;
     }
   }
-
+  .allWeatherContent {
+    position: relative;
+    top: -350px;
+    left: 330px;
+  }
   .datePicker {
     width: 156px;
     height: 29px;
-    margin: auto;
-    padding-bottom: 10vh;
-  }
-
-  .allWeatherContent {
   }
   .weatherChart {
     width: 70vw;
@@ -190,18 +176,25 @@ main {
       justify-content: space-between;
     }
     .firstCol {
-      width: 170px;
+      width: 150px;
       padding: 5px 0px 5px 20px;
     }
     .cell {
       width: 150px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .locationName {
       background-color: $transparentGreen;
       color: white;
     }
+    .topRow {
+      padding-bottom: 10px;
+    }
     .topCell {
+      font-weight: bold;
     }
     .locationDataAll:hover {
       background-color: rgb(139, 139, 139, 0.15);
