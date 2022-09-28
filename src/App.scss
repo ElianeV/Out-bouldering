@@ -63,23 +63,23 @@ main {
       padding-top: 2px;
     }
   }
+}
 
-  // Responsive
+// Responsive
 
-  @media screen and (max-width: 550px) {
-    section {
-      h1 {
-        font-size: 100px;
-      }
-      h2 {
-        font-size: 50px;
-      }
+@media screen and (max-width: 550px) {
+  section {
+    h1 {
+      font-size: 100px;
     }
-    .greenblock {
-      h3 {
-        padding-top: 2px;
-        height: 100px;
-      }
+    h2 {
+      font-size: 50px;
+    }
+  }
+  .greenblock {
+    h3 {
+      padding-top: 2px;
+      height: 100px;
     }
   }
 }
@@ -154,22 +154,11 @@ main {
 .weather {
   height: 500px;
   margin-top: 70px;
-  .climber {
-    img {
-      width: 350px;
-    }
-  }
-  .allWeatherContent {
-    position: relative;
-    top: -350px;
-    left: 330px;
-  }
-  .datePicker {
-    width: 156px;
-    height: 29px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .weatherChart {
-    width: 70vw;
+    width: 90vw;
     .row {
       width: 100%;
       display: flex;
@@ -192,6 +181,10 @@ main {
     }
     .topRow {
       padding-bottom: 10px;
+    }
+    .datePicker {
+      width: 160px;
+      padding-left: 4px;
     }
     .topCell {
       font-weight: bold;

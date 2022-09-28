@@ -142,66 +142,58 @@ function App() {
       </div>
       <div class="weather">
         <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-          <div class="climber">
-            <img src={climber} alt="female climber on rocks" />
-          </div>
-        </ScrollAnimation>
-        <div class="allWeatherContent">
-          <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-            <div class="datePicker">
-              <DatePicker
-                value={value}
-                onChange={setDate}
-                maxDate={maxDate}
-                minDate={minDate}
-              />
-            </div>
-            <div class="weatherChart">
-              <div class="row topRow">
-                <div class="firstCol"></div>
-                <div class="topCell cell">
-                  <div class="cellContent">
-                    <div>09:00-12:00</div>
-                    <div>temp | rain</div>
-                  </div>
-                </div>
-                <div class="topCell cell">
-                  <div class="cellContent">
-                    <div>12:00-15:00</div>
-                    <div>temp | rain</div>
-                  </div>
-                </div>
-                <div class="topCell cell">
-                  <div class="cellContent">
-                    <div>15:00-18:00</div>
-                    <div>temp | rain</div>
-                  </div>
-                </div>
-                <div class="topCell cell">
-                  <div class="cellContent">
-                    <div>18:00-21:00</div>
-                    <div>temp | rain</div>
-                  </div>
+          <div class="weatherChart">
+            <div class="row topRow">
+              <div class="firstCol datePicker">
+                <DatePicker
+                  value={value}
+                  onChange={setDate}
+                  maxDate={maxDate}
+                  minDate={minDate}
+                />
+              </div>
+              <div class="topCell cell">
+                <div class="cellContent">
+                  <div>09:00-12:00</div>
+                  <div>temp | rain</div>
                 </div>
               </div>
-              {dayWeather.map((location, i) => (
-                <div class="row locationDataAll">
-                  <div class="firstCol locationName">
-                    <div>{locations[i].name}</div>
-                  </div>
-                  {location.map((hour, z) => (
-                    <div class="cell">
-                      <div class="cellContent">
-                        {/* {parseInt(hour.main.temp) + "°C " + " | "}*/}20°C |
-                        {/* {+parseInt(hour.pop * 10) + "%"} */} 100%
-                      </div>
-                    </div>
-                  ))}
+              <div class="topCell cell">
+                <div class="cellContent">
+                  <div>12:00-15:00</div>
+                  <div>temp | rain</div>
                 </div>
-              ))}
+              </div>
+              <div class="topCell cell">
+                <div class="cellContent">
+                  <div>15:00-18:00</div>
+                  <div>temp | rain</div>
+                </div>
+              </div>
+              <div class="topCell cell">
+                <div class="cellContent">
+                  <div>18:00-21:00</div>
+                  <div>temp | rain</div>
+                </div>
+              </div>
             </div>
-          </ScrollAnimation>
-        </div>
+            {dayWeather.map((location, i) => (
+              <div class="row locationDataAll">
+                <div class="firstCol locationName">
+                  <div>{locations[i].name}</div>
+                </div>
+                {location.map((hour, z) => (
+                  <div class="cell">
+                    <div class="cellContent">
+                      {/* {parseInt(hour.main.temp) + "°C " + " | "}*/}20°C |
+                      {/* {+parseInt(hour.pop * 10) + "%"} */} 100%
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </ScrollAnimation>
       </div>
     </>
   );
