@@ -109,12 +109,10 @@ function App() {
   return (
     <>
       <main>
-        <div class="cover top absolute"></div>
         <div class="shade absolute"></div>
         <div class="greenblock absolute">
           <h3>Discover Ireland's wildest climbing spots</h3>
         </div>
-        <div class="cover bottom absolute"></div>
         <section class="absolute">
           <h1>out</h1>
           <h2>bouldering</h2>
@@ -143,11 +141,13 @@ function App() {
         </ScrollAnimation>
       </div>
       <div class="weather">
-        <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>
-          <div class="allWeatherContent">
-            {/* <div class="climber">
-              <img src={climber} alt="female climber on rocks" />
-            </div> */}
+        <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+          <div class="climber">
+            <img src={climber} alt="female climber on rocks" />
+          </div>
+        </ScrollAnimation>
+        <div class="allWeatherContent">
+          <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
             <div class="datePicker">
               <DatePicker
                 value={value}
@@ -200,8 +200,8 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
-        </ScrollAnimation>
+          </ScrollAnimation>
+        </div>
       </div>
     </>
   );
