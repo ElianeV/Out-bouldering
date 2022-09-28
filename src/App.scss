@@ -151,10 +151,14 @@ main {
     height: 700px;
     .mapText {
       min-width: 200px;
+      width: 90vw;
       margin-bottom: 60px;
+      padding: 0;
     }
     .map {
       min-width: 200px;
+      width: 90vw;
+      padding: 0;
     }
   }
 }
@@ -177,74 +181,31 @@ main {
   }
 
   .allWeatherContent {
-    display: flex;
-    align-items: center;
   }
-  .weatherResults {
-    width: 75vw;
-    height: 503px;
-    // position: absolute;
-    // change back to absolute
-    top: 8vh;
-    left: 300px;
-  }
-
-  .topRow {
-    min-width: 550px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    .emptyCell {
-      min-width: 145px;
-      width: 170px;
+  .weatherChart {
+    width: 70vw;
+    .row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
     }
-    .head {
-      min-width: 102px;
+    .firstCol {
+      width: 170px;
+      padding: 5px 0px 5px 20px;
+    }
+    .cell {
       width: 150px;
       text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .headContent {
-        font-size: 10px;
-        min-width: 102px;
-      }
     }
-  }
-
-  // adjust styling above this line
-
-  .locationDataAll {
-    min-width: 550px;
-    width: 100%;
-    // this width needs to be adjusted according to parent element!
-    display: flex;
-    justify-content: space-between;
-  }
-  .locationDataAll:hover {
-    background-color: rgb(139, 139, 139, 0.15);
-  }
-  .locationName {
-    min-width: 125px;
-    width: 150px;
-    height: 25px;
-    background-color: $transparentGreen;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 5px 0px 5px 20px;
-  }
-  .singleCell {
-    min-width: 102px;
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
-  .singleCellContent {
-    width: 102px;
-    text-align: center;
+    .locationName {
+      background-color: $transparentGreen;
+      color: white;
+    }
+    .topCell {
+    }
+    .locationDataAll:hover {
+      background-color: rgb(139, 139, 139, 0.15);
+    }
   }
 }
 
@@ -257,7 +218,6 @@ main {
     opacity: 1;
   }
 }
-
 @keyframes slideRight {
   0% {
     transform: translateX(-20vw);
