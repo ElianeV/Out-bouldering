@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap");
 
 $transparentGreen: rgba(0, 90, 86, 0.634);
-$green: rgba(0, 90, 86);
 
 * {
   margin: 0;
@@ -31,7 +30,6 @@ main {
     bottom: 33vh;
     left: 9vw;
     color: white;
-
     h1 {
       font-size: 140px;
       font-family: "Lora", serif;
@@ -68,18 +66,38 @@ main {
 // Responsive
 
 @media screen and (max-width: 550px) {
-  section {
-    h1 {
-      font-size: 100px;
+  main {
+    section {
+      h1 {
+        font-size: 100px;
+      }
+      h2 {
+        font-size: 60px;
+      }
     }
-    h2 {
-      font-size: 50px;
+    .greenblock {
+      h3 {
+        padding-top: 2px;
+        height: 100px;
+      }
     }
   }
-  .greenblock {
-    h3 {
-      padding-top: 2px;
-      height: 100px;
+}
+@media screen and (max-width: 350px) {
+  main {
+    section {
+      h2 {
+        font-size: 50px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 280px) {
+  main {
+    .greenblock {
+      h3 {
+        font-size: 0.8rem;
+      }
     }
   }
 }
@@ -134,7 +152,7 @@ main {
 }
 @media screen and (max-width: 550px) {
   .allMapContent {
-    height: 700px;
+    height: 650px;
     .mapText {
       min-width: 200px;
       width: 90vw;
@@ -211,7 +229,20 @@ main {
 @media screen and (max-width: 550px) {
   .weather {
     .weatherChart {
-      font-size: 0.8em;
+      font-size: 0.7rem;
+      .firstCol {
+        padding-left: 2px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 325px) {
+  .weather {
+    .weatherChart {
+      font-size: 0.6rem;
+      .firstCol {
+        padding-left: 2px;
+      }
     }
   }
 }

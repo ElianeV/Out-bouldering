@@ -12,6 +12,12 @@ function App() {
   const [allWeather, setAllWeather] = useState([]);
   const [dayWeather, setDayWeather] = useState([]);
   const dayTimes = ["09:00:00", "12:00:00", "15:00:00", "18:00:00"];
+  const dayTimes3h = [
+    "09:00-12:00",
+    "12:00-15:00",
+    "15:00-18:00",
+    "18:00-21:00",
+  ];
   const pickedDate = createUTCDateForISO(value);
   const locations = [
     {
@@ -108,18 +114,18 @@ function App() {
   return (
     <>
       <main>
-        <div class="shade absolute"></div>
-        <div class="greenblock absolute">
+        <div className="shade absolute"></div>
+        <div className="greenblock absolute">
           <h3>Discover Ireland's wildest climbing spots</h3>
         </div>
-        <section class="absolute">
+        <section className="absolute">
           <h1>out</h1>
           <h2>bouldering</h2>
         </section>
       </main>
-      <div class="allMapContent">
+      <div className="allMapContent">
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-          <div class="mapText">
+          <div className="mapText">
             <p>
               Ireland is known for its diverse and untamed landscape and is home
               to some of the most amazing climbs out in nature. Although the
@@ -131,7 +137,7 @@ function App() {
           </div>
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
-          <div class="map">
+          <div className="map">
             <img
               src={mapIreland}
               alt="A map of Ireland with the most popular climbing locations highlighted."
@@ -139,10 +145,10 @@ function App() {
           </div>
         </ScrollAnimation>
       </div>
-      <div class="weather">
-        <div class="weatherChart">
+      <div className="weather">
+        <div className="weatherChart">
           <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
-            <div class="datePicker">
+            <div className="datePicker">
               <DatePicker
                 value={value}
                 onChange={setDate}
@@ -150,43 +156,27 @@ function App() {
                 minDate={minDate}
               />
             </div>
-            <div class="row topRow">
-              <div class="firstCol"></div>
-              <div class="topCell cell">
-                <div class="cellContent">
-                  <div>09:00-12:00</div>
-                  <div>temp | rain</div>
+            <div className="row topRow">
+              <div className="firstCol"></div>
+              {dayTimes3h.map((time) => (
+                <div className="topCell cell">
+                  <div className="cellContent">
+                    <div>{time}</div>
+                    <div>temp | rain</div>
+                  </div>
                 </div>
-              </div>
-              <div class="topCell cell">
-                <div class="cellContent">
-                  <div>12:00-15:00</div>
-                  <div>temp | rain</div>
-                </div>
-              </div>
-              <div class="topCell cell">
-                <div class="cellContent">
-                  <div>15:00-18:00</div>
-                  <div>temp | rain</div>
-                </div>
-              </div>
-              <div class="topCell cell">
-                <div class="cellContent">
-                  <div>18:00-21:00</div>
-                  <div>temp | rain</div>
-                </div>
-              </div>
+              ))}
             </div>
             {dayWeather.map((location, i) => (
-              <div class="row locationDataAll">
-                <div class="firstCol locationName">
+              <div className="row locationDataAll">
+                <div className="firstCol locationName">
                   <div>{locations[i].name}</div>
                 </div>
                 {location.map((hour, z) => (
-                  <div class="cell">
-                    <div class="cellContent">
-                      {/* {parseInt(hour.main.temp) + "°C " + " | "}*/}20°C |
-                      {/* {+parseInt(hour.pop * 10) + "%"} */} 100%
+                  <div className="cell">
+                    <div className="cellContent">
+                      {parseInt(hour.main.temp) + "°C " + " | "}
+                      {+parseInt(hour.pop * 10) + "%"}
                     </div>
                   </div>
                 ))}
