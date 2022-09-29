@@ -154,7 +154,7 @@ main {
 .weather {
   height: 500px;
   width: 100vw;
-  margin-top: 70px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -185,7 +185,7 @@ main {
     }
     .datePicker {
       width: 160px;
-      padding-left: 4px;
+      margin-bottom: 50px;
     }
     .topCell {
       font-weight: bold;
@@ -199,8 +199,19 @@ main {
 // Responsive
 @media screen and (max-width: 820px) {
   .weather {
+    height: 400px;
     .weatherChart {
       width: 100%;
+    }
+  }
+  .datePicker {
+    margin: auto;
+  }
+}
+@media screen and (max-width: 550px) {
+  .weather {
+    .weatherChart {
+      font-size: 0.8em;
     }
   }
 }
