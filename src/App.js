@@ -2,7 +2,7 @@ import "./App.scss";
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-date-picker";
 import mapIreland from "./images/mapIreland.png";
-import ScrollAnimation from "react-animate-on-scroll";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 import "animate.css/animate.compat.css";
 
 function App() {
@@ -124,7 +124,7 @@ function App() {
         </section>
       </main>
       <div className="allMapContent">
-        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+        <AnimationOnScroll animateIn="fadeInUp" animateOnce={true}>
           <div className="mapText">
             <p>
               Ireland is known for its diverse and untamed landscape and is home
@@ -135,19 +135,19 @@ function App() {
               bouldering locations and plan your ideal (dry!) climbing trip.
             </p>
           </div>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" animateOnce={true}>
+        </AnimationOnScroll>
+        <AnimationOnScroll animateIn="fadeInUp" animateOnce={true}>
           <div className="map">
             <img
               src={mapIreland}
               alt="A map of Ireland with the most popular climbing locations highlighted."
             />
           </div>
-        </ScrollAnimation>
+        </AnimationOnScroll>
       </div>
       <div className="weather">
         <div className="weatherChart">
-          <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+          <AnimationOnScroll animateIn="fadeIn" animateOnce={true}>
             <div className="datePicker">
               <DatePicker
                 value={value}
@@ -182,7 +182,7 @@ function App() {
                 ))}
               </div>
             ))}
-          </ScrollAnimation>
+          </AnimationOnScroll>
         </div>
       </div>
     </>
