@@ -89,7 +89,7 @@ function App() {
   useEffect(() => {
     const promises = locations.map((location) =>
       fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=9e7a95161ad9e25ea439cfe0a77e5459&units=metric`
+        `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
       )
         .then((response) => response.json())
         .catch((error) => console.log(error))
