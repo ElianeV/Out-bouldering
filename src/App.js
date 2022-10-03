@@ -124,7 +124,7 @@ function App() {
         </section>
       </main>
       <div className="allMapContent">
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
+        <AnimationOnScroll animateIn="fadeInUp" animateOnce={true}>
           <div className="mapText">
             <p>
               Ireland is known for its diverse and untamed landscape and is home
@@ -136,7 +136,7 @@ function App() {
             </p>
           </div>
         </AnimationOnScroll>
-        <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce={true}>
+        <AnimationOnScroll animateIn="fadeInUp" animateOnce={true}>
           <div className="map">
             <img
               src={mapIreland}
@@ -147,7 +147,7 @@ function App() {
       </div>
       <div className="weather">
         <div className="weatherChart">
-          <AnimationOnScroll animateIn="animate__fadeIn" animateOnce={true}>
+          <AnimationOnScroll animateIn="fadeIn" animateOnce={true}>
             <div className="datePicker">
               <DatePicker
                 value={value}
