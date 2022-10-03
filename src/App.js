@@ -77,7 +77,6 @@ function App() {
       longitude: -6.1000056353936065,
     },
   ];
-
   function createUTCDateForISO(value) {
     const offset = value.getTimezoneOffset();
     const myDate = value - offset * 60 * 1000;
@@ -85,11 +84,10 @@ function App() {
 
     return dateAsISO.substring(0, 10);
   }
-
   useEffect(() => {
     const promises = locations.map((location) =>
       fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
       )
         .then((response) => response.json())
         .catch((error) => console.log(error))
