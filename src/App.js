@@ -176,7 +176,7 @@ function App() {
                   <div className="cell">
                     <div className="cellContent">
                       {parseInt(hour.main.temp) + "°C " + " | "}
-                      {+parseInt(hour.pop * 10) + "%"}
+                      {+parseInt(hour.pop * 100) + "%"}
                     </div>
                   </div>
                 ))}
