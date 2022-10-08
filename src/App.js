@@ -152,6 +152,7 @@ function App() {
                 onChange={setDate}
                 maxDate={maxDate}
                 minDate={minDate}
+                clearIcon={null}
               />
             </div>
             <div className="row topRow">
