@@ -158,7 +158,7 @@ function App() {
             <div className="row topRow">
               <div className="firstCol"></div>
               {dayTimes3h.map((time) => (
-                <div className="topCell cell">
+                <div key={time} className="topCell cell">
                   <div className="cellContent">
                     <div>{time}</div>
                     <div>temp | rain</div>
@@ -167,12 +167,12 @@ function App() {
               ))}
             </div>
             {dayWeather.map((location, i) => (
-              <div className="row locationDataAll">
+              <div key={i} className="row locationDataAll">
                 <div className="firstCol locationName">
                   <div>{locations[i].name}</div>
                 </div>
-                {location.map((hour, z) => (
-                  <div className="cell">
+                {location.map((hour, j) => (
+                  <div key={j} className="cell">
                     <div className="cellContent">
                       {parseInt(hour.main.temp) + "°C " + " | "}
                       {+parseInt(hour.pop * 100) + "%"}
